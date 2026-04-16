@@ -14,42 +14,67 @@ body {
     background-image: linear-gradient(45deg, #0a0a0a, #3a4452);
 }
 
+.container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 16px;
+}
+
 .calculadora {
     border: 1px solid #717377;
     padding: 20px;
     border-radius: 16px;
     background: transparent;
-    box-shadow: 0px 3px 15px rgba(113,115,119,0.5);
+    box-shadow: 0px 3px 15px rgba(113, 115, 119, 0.5);
+    width: 360px;
 }
 
 input {
-    width: 320px;
+    width: 100%;
     border: none;
     padding: 24px;
-    margin: 10px;
+    margin-bottom: 10px;
     background: transparent;
     box-shadow: 0 3px 15px rgba(84, 84, 84, 0.1);
     font-size: 40px;
     text-align: right;
     cursor: pointer;
     color: #ffffff;
+    outline: none;
 }
 
 input::placeholder {
-    color: #ffff;
+    color: #ffffff;
+}
+
+.calculadora div {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    margin-bottom: 10px;
 }
 
 button {
     border: none;
-    width: 60px;
-    height: 60px;
-    margin: 10px;
+    width: 100%;
+    aspect-ratio: 1;
     border-radius: 50%;
     background: transparent;
     color: #ffffff;
     font-size: 20px;
     box-shadow: -8px -8px 15px rgba(255, 255, 255, 0.1);
     cursor: pointer;
+    transition: opacity 0.15s, transform 0.1s;
+}
+
+button:hover {
+    opacity: 0.8;
+}
+
+button:active {
+    transform: scale(0.95);
 }
 
 .igualBtn {
@@ -58,4 +83,27 @@ button {
 
 .operador {
     background-color: #6dee0a;
+}
+
+/* Celular (max 480px) */
+@media (max-width: 480px) {
+    .calculadora {
+        width: 100%;
+        padding: 12px;
+        border-radius: 12px;
+    }
+
+    input {
+        font-size: 26px;
+        padding: 14px;
+    }
+
+    button {
+        font-size: 16px;
+    }
+
+    .calculadora div {
+        gap: 6px;
+        margin-bottom: 6px;
+    }
 }
